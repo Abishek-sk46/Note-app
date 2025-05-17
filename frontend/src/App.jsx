@@ -1,7 +1,7 @@
 import React from 'react'
-import { BrowserRouter , Routes, Route, Navigation, Navigate } from 'react-router-dom'
+import { BrowserRouter , Routes, Route, Navigate } from 'react-router-dom'
 import Register from './pages/Register'
-import Login0 from './pages/login'
+import Login from './pages/login'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/ProtectsRoute'
@@ -21,7 +21,16 @@ function RegisterAndLogout(){
 
 function App() {
   return (
-    <div>App</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
