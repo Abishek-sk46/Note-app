@@ -48,7 +48,7 @@ function ProtectedRoute({children}){
             await refreshToken();
         }
         else{
-            setIsAuthorized(fasle)
+            setIsAuthorized(true)
         }
     }
 
